@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 
+		- appServlet 이라는 이름의 서블릿 정의하기 
+		- org.springframework.web.servlet 페키지에 있는 DistpatcherServlet 을 사용할 준비를 한다.
+		- 서블릿의 동작 셋팅은  /WEB-INF/spring/appServlet/ 폴더 안에 있는 servlet-context.xml
+		    문서를 로딩해서 동작을 준비한다.
+	-->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 
+		appServlet 이라는 이름의 서블릿이 어떤 경로 요청에 대해서 동작하게 할지 맵핑하기 
+		
+		<url-pattern>/</url-pattern> 은  @WebServlet("/") 와 동일한 동작이다.
+		
+		/ 는   모든 유형의 요청을 다 처리 하겠다는 의미 
+	-->		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>
+
+
+
