@@ -34,7 +34,18 @@ public class MemberDaoImpl implements MemberDao{
 		 *  sql's id : insert
 		 *  parameterType : MemberDto
 		 */
+		
 		session.insert("member.insert", dto);
+	}
+
+	@Override
+	public void delete(int num) {
+		/*
+		 *  Mapper's namespace : member
+		 *  sql's id : delete
+		 *  parameterType : int
+		 */
+		session.delete("member.delete", num);
 	}
 
 }

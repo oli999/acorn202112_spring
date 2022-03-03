@@ -18,6 +18,15 @@ public class MemberController {
 	@Autowired
 	private MemberDao dao;
 	
+	//회원 삭제 요청 처리
+	@RequestMapping("/member/delete")
+	public String delete(int num) {
+		//GET 방식 파라미터로 전달되는 회원 번호를 이용해서 회원정보를 삭제하고 
+		dao.delete(num);
+		//리다일렉트 응답(클라이언트에게 해당 경로로 요청을 다시 하라고 강요)
+		return "redirect:/member/list.do";
+	}
+	
 	//회원 추가 요청 처리
 	@RequestMapping("/member/insert")
 	public String insert(HttpServletRequest request) {

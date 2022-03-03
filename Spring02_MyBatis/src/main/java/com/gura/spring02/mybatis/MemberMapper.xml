@@ -21,6 +21,11 @@
 		(num, name, addr)
 		VALUES(member_seq.NEXTVAL, #{name} , #{addr})
 	</insert>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM member
+		WHERE num=#{num}
+	</delete>
 </mapper>
 
 
