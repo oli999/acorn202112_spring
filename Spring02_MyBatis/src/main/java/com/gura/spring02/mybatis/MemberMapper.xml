@@ -26,7 +26,26 @@
 		DELETE FROM member
 		WHERE num=#{num}
 	</delete>
+	
+	<select id="getData" parameterType="int" 
+		resultType="com.gura.spring02.member.dto.MemberDto">
+		SELECT num,name,addr
+		FROM member
+		WHERE num=#{num}
+	</select>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -18,6 +18,21 @@ public class MemberController {
 	@Autowired
 	private MemberDao dao;
 	
+	//회원 수정 폼 요청 처리
+	@RequestMapping("/member/updateform")
+	public ModelAndView updateform(int num, ModelAndView mView) {
+		//수정할 회원의 번호를 읽어와서 
+		
+		//DB 에서 해당회원의 정보를 얻어와서
+		MemberDto dto=dao.getData(num);
+		//request scope 에 담고
+		mView.addObject("dto", dto);
+		//view page 로 forward 이동해서 회원 수정폼 응답
+		mView.setViewName("member/updateform");
+		
+		return mView;
+	}
+	
 	//회원 삭제 요청 처리
 	@RequestMapping("/member/delete")
 	public String delete(int num) {

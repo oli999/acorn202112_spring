@@ -48,6 +48,19 @@ public class MemberDaoImpl implements MemberDao{
 		session.delete("member.delete", num);
 	}
 
+	@Override
+	public MemberDto getData(int num) {
+		/*
+		 *  Mapper's namespace : member
+		 *  sql's id : getData
+		 *  parameterType : int
+		 *  resultType : MemberDto
+		 */
+		MemberDto dto=session.selectOne("member.getData", num);
+		
+		return dto;
+	}
+
 }
 
 
