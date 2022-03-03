@@ -29,7 +29,12 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public void insert(MemberDto dto) {
-		
+		/*
+		 *  Mapper's namespace : member
+		 *  sql's id : insert
+		 *  parameterType : MemberDto
+		 */
+		session.insert("member.insert", dto);
 	}
 
 }

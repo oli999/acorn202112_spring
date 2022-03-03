@@ -18,6 +18,51 @@ public class MemberController {
 	@Autowired
 	private MemberDao dao;
 	
+	//회원 추가 요청 처리
+	@RequestMapping("/member/insert")
+	public String insert(HttpServletRequest request) {
+		//1. 폼전송되는 이름과, 주소를 추출해서
+		String name=request.getParameter("name");
+		String addr=request.getParameter("addr");
+		//2. MemberDto 에 담아서
+		MemberDto dto=new MemberDto();
+		dto.setName(name);
+		dto.setAddr(addr);
+		//3. DB 에 저장하고
+		dao.insert(dto);
+		//4. 응답하기 
+		return "member/insert";
+	}
+	
+	//회원 추가 요청 처리
+	@RequestMapping("/member/insert2")
+	public String insert2(String name, String addr) {
+		//2. MemberDto 에 담아서
+		MemberDto dto=new MemberDto();
+		dto.setName(name);
+		dto.setAddr(addr);
+		//3. DB 에 저장하고
+		dao.insert(dto);
+		//4. 응답하기 
+		return "member/insert";
+	}
+
+	//회원 추가 요청 처리
+	@RequestMapping("/member/insert3")
+	public String insert3(MemberDto dto) {
+		//3. DB 에 저장하고
+		dao.insert(dto);
+		//4. 응답하기 
+		return "member/insert";
+	}
+	
+	//회원 추가 폼 요청 처리 
+	@RequestMapping("/member/insertform")
+	public String insertform() {
+		
+		return "member/insertform";
+	}
+	
 	@RequestMapping("/member/list.do")
 	public String list(HttpServletRequest request) {
 		//1. dao 를 이용해서 DB 에서 회원 목록을 얻어온다.

@@ -10,5 +10,19 @@
 		FROM member
 		ORDER BY num ASC
 	</select>
-	
+	<!-- 
+		parameterType="인자로 전달된 데이터의 type" 
+		parameterType 이 dto 인 경우에
+		#{name} 은  dto.getName() 메소드를 호출해서 리턴되는 값을 자동 바인딩해 준다.
+		#{addr} 은  dto.getAddr() 메소드를 호출해서 리턴되는 값을 자동 바인딩해 준다.
+	 -->
+	<insert id="insert" parameterType="com.gura.spring02.member.dto.MemberDto">
+		INSERT INTO member
+		(num, name, addr)
+		VALUES(member_seq.NEXTVAL, #{name} , #{addr})
+	</insert>
 </mapper>
+
+
+
+
