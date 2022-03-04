@@ -47,7 +47,7 @@ public class MemberController {
 	
 	//회원 삭제 요청 처리
 	@RequestMapping("/member/delete")
-	public String delete(int num) {
+	public String delete(int num)  {
 		//GET 방식 파라미터로 전달되는 회원 번호를 이용해서 회원정보를 삭제하고 
 		service.deleteMember(num);
 		//리다일렉트 응답(클라이언트에게 해당 경로로 요청을 다시 하라고 강요)
