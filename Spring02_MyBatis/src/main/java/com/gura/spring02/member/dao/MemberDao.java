@@ -11,4 +11,5 @@ public interface MemberDao {
 	public void insert(MemberDto dto);
 	public void delete(int num);
 	public MemberDto getData(int num);
+	public void update(MemberDto dto);
 }

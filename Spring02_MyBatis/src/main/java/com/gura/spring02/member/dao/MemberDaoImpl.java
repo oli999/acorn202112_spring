@@ -61,6 +61,16 @@ public class MemberDaoImpl implements MemberDao{
 		return dto;
 	}
 
+	@Override
+	public void update(MemberDto dto) {
+		/*
+		 *  Mapper's namespace : member
+		 *  sql's id : update
+		 *  parameterType : 
+		 */
+		session.update("member.update", dto);
+	}
+
 }
 
 
