@@ -12,7 +12,6 @@
 	<h1>인덱스 페이지 입니다.</h1>
 	<ul>
 		<li><a href="member/list.do">회원 목록 보기</a></li>
-		<li><a href="member/list2.do">회원 목록 보기2</a></li>
 	</ul>
 	
 	<h2>공지사항</h2>
