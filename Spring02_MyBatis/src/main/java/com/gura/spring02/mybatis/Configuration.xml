@@ -3,7 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+	<typeAliases>
+		<typeAlias type="com.gura.spring02.member.dto.MemberDto" alias="memberDto"/>
+	</typeAliases>
 	<!-- sql 문을 작성한 Mapper xml 문서가 어디에 있는지 목록을 작성해야 한다. -->
 	<mappers>
 		<mapper resource="com/gura/spring02/mybatis/MemberMapper.xml"/>

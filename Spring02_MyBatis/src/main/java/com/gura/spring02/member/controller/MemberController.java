@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring02.member.dto.MemberDto;
@@ -28,7 +29,7 @@ public class MemberController {
 	private MemberService service;
 	
 	//회원 정보 수정 요청 처리
-	@RequestMapping("/member/update")
+	@RequestMapping(value = "/member/update", method = RequestMethod.POST)
 	public String update(MemberDto dto) {
 		service.updateMember(dto);
 		return "member/update";
@@ -56,7 +57,7 @@ public class MemberController {
 	
 
 	//회원 추가 요청 처리
-	@RequestMapping("/member/insert")
+	@RequestMapping(value = "/member/insert", method = RequestMethod.POST)
 	public String insert(MemberDto dto) {
 		service.addMember(dto);
 		return "member/insert";

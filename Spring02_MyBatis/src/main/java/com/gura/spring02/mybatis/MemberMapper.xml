@@ -5,7 +5,7 @@
 		id="sql 문의 아이디 부여"
 		resultType="select 된 row 하나를 어떤 객체에 담을지 type 선언"
 	 -->
-	<select id="getList" resultType="com.gura.spring02.member.dto.MemberDto">
+	<select id="getList" resultType="memberDto">
 		SELECT num, name, addr
 		FROM member
 		ORDER BY num ASC
@@ -16,7 +16,7 @@
 		#{name} 은  dto.getName() 메소드를 호출해서 리턴되는 값을 자동 바인딩해 준다.
 		#{addr} 은  dto.getAddr() 메소드를 호출해서 리턴되는 값을 자동 바인딩해 준다.
 	 -->
-	<insert id="insert" parameterType="com.gura.spring02.member.dto.MemberDto">
+	<insert id="insert" parameterType="memberDto">
 		INSERT INTO member
 		(num, name, addr)
 		VALUES(member_seq.NEXTVAL, #{name} , #{addr})
@@ -27,14 +27,13 @@
 		WHERE num=#{num}
 	</delete>
 	
-	<select id="getData" parameterType="int" 
-		resultType="com.gura.spring02.member.dto.MemberDto">
+	<select id="getData" parameterType="int" resultType="memberDto">
 		SELECT num,name,addr
 		FROM member
 		WHERE num=#{num}
 	</select>
 	
-	<update id="update" parameterType="com.gura.spring02.member.dto.MemberDto">
+	<update id="update" parameterType="memberDto">
 		UPDATE member
 		SET name=#{name}, addr=#{addr}
 		WHERE num=#{num}
