@@ -15,6 +15,11 @@ public class FileDaoImpl implements FileDao{
 
 	@Override
 	public void insert(FileDto dto) {
+		/*
+		 *  mapper's namespace : file
+		 *  sql's id : insert
+		 *  parameterType
+		 */
 		session.insert("file.insert", dto);
 	}
 
