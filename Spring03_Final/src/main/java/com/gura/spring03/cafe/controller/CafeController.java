@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -97,6 +98,19 @@ public class CafeController {
 
 		return "redirect:/cafe/list.do";
 	}
+	@RequestMapping("/cafe/private/updateform")
+	public String updateForm(HttpServletRequest request) {
+
+		service.getData(request);
+
+		return "cafe/updateform";
+	}
+	//카페글 수정 요청 처리 
+	@RequestMapping(value = "/cafe/private/update", method = RequestMethod.POST)
+	public String update(CafeDto dto) {
+		service.updateContent(dto);
+		return "cafe/update";
+	}	
 }
 
 
