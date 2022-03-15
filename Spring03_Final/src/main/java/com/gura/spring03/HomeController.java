@@ -25,12 +25,26 @@ public class HomeController {
 		noticeList.add("저쩌구...");
 		
 		//공지 사항을 noticeList 라는 키값으로 request scope 에 담는다. 
-		request.setAttribute("noticeList", noticeList);
+		request.setAttribute("notice", noticeList);
 		
 		// /WEB-INF/views/home.jsp 페이지로 forward 이동해서 응답
 		return "home";
 	}
-	
+	// aspect 테스트용 메소드 
+	@RequestMapping("/aspect/home")
+	public ModelAndView authHome(HttpServletRequest request, ModelAndView mView) {
+		//DB 에서 읽어온 공지사항이라고 가정하자 
+		List<String> notice=new ArrayList<String>();
+		notice.add("무더운 여름입니다.");
+		notice.add("더위 조심 하세요");
+		notice.add("어쩌구...");
+		notice.add("저쩌구...");
+		//공지 사항을 request 에 담기
+		request.setAttribute("notice", notice);
+
+		mView.setViewName("home");
+		return mView;
+	}	
 
 }
 
