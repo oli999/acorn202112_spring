@@ -22,7 +22,9 @@
     	@Controller, @Service, @Repository, @Component
     -->
     <context:component-scan base-package="test.util"/>
-
+	<context:component-scan base-package="test.aspect"/>
+	<!-- 어노테이션 기반으로 aop 를 적용할수 있도록 설정 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
 
 
