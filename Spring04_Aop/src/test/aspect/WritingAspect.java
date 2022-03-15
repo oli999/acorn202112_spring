@@ -18,7 +18,7 @@ public class WritingAspect {
 	//수행 이전에 적용  
 	@Before("execution(void write*())")  // @Before(" aspectj expression ")
 	public void prepare() {
-		System.out.println("파란색 Pen 을 준비해요");
+		System.out.println("검정색 Pen 을 준비해요");
 	}
 	//수행 이후에 적용
 	@After("execution(void write*())")
