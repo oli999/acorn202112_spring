@@ -141,8 +141,8 @@
 	<ul>
 		<li><a href="list.do">목록보기</a></li>
 		<c:if test="${dto.writer eq id }">
-			<li><a href="private/updateform.do?num=${dto.num }">수정</a></li>
-			<li><a href="private/delete.do?num=${dto.num }">삭제</a></li>
+			<li><a href="updateform.do?num=${dto.num }">수정</a></li>
+			<li><a href="delete.do?num=${dto.num }">삭제</a></li>
 		</c:if>
 	</ul>
 	<!-- 댓글 목록 -->
@@ -189,7 +189,7 @@
 										<pre id="pre${tmp.num }">${tmp.content }</pre>						
 									</dd>
 								</dl>
-								<form id="reForm${tmp.num }" class="animate__animated comment-form re-insert-form" action="private/comment_insert.do" method="post">
+								<form id="reForm${tmp.num }" class="animate__animated comment-form re-insert-form" action="comment_insert.do" method="post">
 									<input type="hidden" name="ref_group" value="${dto.num }"/>
 									<input type="hidden" name="target_id" value="${tmp.writer }"/>
 									<input type="hidden" name="comment_group" value="${tmp.comment_group }"/>
@@ -197,7 +197,7 @@
 									<button type="submit">등록</button>
 								</form>
 							<c:if test="${tmp.writer eq id }">
-								<form id="updateForm${tmp.num }" class="comment-form update-form" action="private/comment_update.do" method="post">
+								<form id="updateForm${tmp.num }" class="comment-form update-form" action="comment_update.do" method="post">
 									<input type="hidden" name="num" value="${tmp.num }" />
 									<textarea name="content">${tmp.content }</textarea>
 									<button type="submit">수정</button>
@@ -217,7 +217,7 @@
 	</div>
 
 	<!-- 원글에 댓글을 작성할 폼 -->
-	<form class="comment-form insert-form" action="private/comment_insert.do" method="post">
+	<form class="comment-form insert-form" action="comment_insert.do" method="post">
 		<!-- 원글의 글번호가 댓글의 ref_group 번호가 된다. -->
 		<input type="hidden" name="ref_group" value="${dto.num }"/>
 		<!-- 원글의 작성자가 댓글의 대상자가 된다. -->
@@ -341,7 +341,7 @@
 				const isDelete=confirm("댓글을 삭제 하시겠습니까?");
 				if(isDelete){
 					// gura_util.js 에 있는 함수들 이용해서 ajax 요청
-					ajaxPromise("private/comment_delete.do", "post", "num="+num)
+					ajaxPromise("comment_delete.do", "post", "num="+num)
 					.then(function(response){
 						return response.json();
 					})
