@@ -19,7 +19,7 @@
    /* .img-wrapper 에 마우스가 hover 되었을때 적용할 css */
    .img-wrapper:hover{
       /* 원본 크기의 1.1 배로 확대 시키기*/
-      transform: scale(1.05);
+      transform: scale(1.1);
    }
    
    .card .card-text{

@@ -6,11 +6,15 @@
 <meta charset="UTF-8">
 <title>/views/users/signup_form.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
 <div class="container">
 	<h1>회원 가입 폼 입니다.</h1>
-	<form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
+	<form class="animate__animated animate__bounceInDown" action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
 		<div>
 			<label class="control-label" for="id">아이디</label>
 			<input class="form-control" type="text" name="id" id="id"/>

@@ -28,6 +28,7 @@
 		<li><a href="${pageContext.request.contextPath}/file/list.do">자료실 목록 보기</a></li>
 		<li><a href="${pageContext.request.contextPath}/cafe/list.do">카페글 목록 보기</a></li>
 		<li><a href="${pageContext.request.contextPath}/gallery/list.do">겔러리 목록 보기</a></li>
+		<li><a href="${pageContext.request.contextPath}/animate_test.jsp">animate css  테스트</a></li>
 	</ul>
 	
 	<h2>공지사항</h2>
